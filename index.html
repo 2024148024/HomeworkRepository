@@ -2,8 +2,92 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <style type = "text/css">
+            h1 {
+                text-align: center; 
+            }
+            table {
+                margin-left: auto;
+                margin-right: auto
+            }
+            th {
+                font-size: 18px;
+            }
+            td {
+                text-indent: 0.5em; 
+            }
+            td:hover {
+                min-width: 200px; 
+                min-height: 300px; 
+            }
+            .titleMinimum{
+                min-width: 180px;
+            }
+            .quoteMinimum{
+                min-width: 400px; 
+            }
+            .orderMinimum{
+                min-width: 50px; 
+            }
+            img { 
+                max-width: 180px;
+                transition-duration: 1s; 
+            }
+            img:hover {
+                max-width: 250px; 
+            }
+
+        </style>
     </head>
     <body>
-        Hello, World!
+        <h1>
+            배하람의 영화 소개
+        </h1>
+        <ul>
+            
+        </ul>
+
+        <table border = "1"> 
+            <caption>Table 1. Top 3 Movies</caption>
+            
+            <thead>
+                <tr>
+                    <th rowspan = "2" class="orderMinimum">
+                        순위
+                    </th>
+                    <th colspan = "3">
+                        영화 정보
+                    </th>
+                </tr>
+                <tr>
+                    <th class="titleMinimum">
+                        제목
+                    </th>
+                    <th class="titleMinimum">
+                        포스터
+                    </th>
+                    <th class="quoteMinimum">
+                        명대사 
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        1 
+                    </td>
+                    <td>
+                        Interstellar
+                    </td>
+                    <td>
+                        <img src="interstellar.png" alt="Interstellar Poster">
+                    </td>
+                    <td>
+                        Quote goes here
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </body>
 </html>
