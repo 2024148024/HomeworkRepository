@@ -1,0 +1,70 @@
+<!DOCTYPE html> 
+<html>
+<link rel="stylesheet" type="text/css" href="main.css">
+<title>
+Movie search signup page
+</title> 
+
+<div class="center-container"> 
+    <h1>  
+        Welcome to Movie Search
+    </h1>
+</div> 
+
+<div class="margined-center-container"> 
+    <a href="login.html">Log In </a>
+    <span class="link-text">&nbsp| Sign Up</span> 
+</div> 
+
+<div class="center-container"> 
+<div class="form-container"> 
+<form method = "GET"> 
+    <div class="input-container"> 
+        <label>Name</label>
+        <input name = "name" autofocus />
+    </div>    
+    <div class="input-container"> 
+        <label>Birthday </label> 
+        <input name = "birthday" autocomplete = "bday" type = "date" />
+    </div> 
+    <div class="input-container"> 
+        <label>Grade </label> 
+        <input name = "grade" type = "number" min = "1" max = "4" step = "1" value = "1" />    
+    </div>
+    <div class="input-container"> 
+        <label> Sex </label> 
+            <fieldset> 
+                <label><input name = "sex" type = "radio" value="male" /> Male</label>   
+                <label><input name = "sex" type = "radio" value="female" /> Female</label> 
+             </fieldset> 
+    </div> 
+    <div class="input-container">  
+        <label>Email </label> 
+        <input name = "email" placeholder = "email@domain.com" type = "email" />  
+    </div>
+    <div class="input-container"> 
+        <label> Purpose </label> 
+        <select name="purpose" />
+            <option value="school">School</option> 
+            <option value="personal">Personal</option> 
+            <option value="business">Business</option> 
+            <option value="other">Other</option> 
+        </select>  
+    </div> 
+    <div class="input-container"> 
+        <label>ID </label> 
+        <input name = "id" required />
+    </div>       
+    <div class="input-container"> 
+        <label>Password </label> 
+        <input name = "password" required />
+    </div>  
+
+    <div class="submit-container"> 
+        <input class="green" type="submit" value = "Submit" />
+        <input class="red" type="reset" value = "Clear" />
+    </div> 
+</form> 
+</div> 
+</div> 
+</html>

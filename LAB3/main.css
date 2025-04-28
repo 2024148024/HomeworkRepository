@@ -1,0 +1,172 @@
+@keyframes movingheader {
+    from {left: 200px} 
+    to {left: 0px}
+}
+
+.animated-h1 {
+    margin-left: 25px; 
+    font-size: 32px; 
+    font-family: serif;
+    animation-name: movingheader; 
+    animation-duration: 2s; 
+    position: relative; 
+}
+.navigation-container {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
+    margin-left: 25px; 
+    margin-bottom: 25px;
+}
+.navigation-container a {
+     text-decoration: none; 
+} 
+.navigation-container a:hover {
+    text-decoration: underline; 
+}
+.main-contents {
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px;
+}
+.top-content {
+    display: flex; 
+    flex-direction: column; 
+}
+.top-content-part {
+   display: flex; 
+   flex-direction: row; 
+   flex-wrap: wrap;
+}
+.image-container {
+    border: 3px solid black; 
+    display: flex;
+    gap: 10px; 
+    padding: 10px; 
+    width:100%;
+}
+@media screen and  (min-width: 481px) and (max-width: 800px) {
+       .image-container {
+        border: 3px solid red;
+    display: flex;
+    gap: 10px; 
+    padding: 10px; 
+    width: 250px;
+}
+.top-content-part {
+   display: flex; 
+   flex-direction: row; 
+   flex-wrap: wrap;
+}
+}
+@media screen and (min-width: 801px) {
+    .image-container {
+        border: 3px solid blue; 
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px; 
+    padding: 10px; 
+    width: 250px;
+    height: 400px;
+}
+.top-content-part {
+   display: flex; 
+   flex-direction: row; 
+}
+
+}
+
+.image-and-text {
+    display: flex; 
+    flex-direction: column; 
+}
+.image-and-text:hover .movie-title {
+    opacity: 1; 
+}
+.image {
+    width: 100px;
+    height: 150px;
+    transition: transform 2s; 
+}
+.nohoverimage {
+    width: 100px;
+    height: 150px;
+}
+.image:hover {
+     transform: scale(2,2);
+}
+.movie-title {
+    opacity: 0; 
+    transition opacity 0.3s; 
+}
+
+.explanation {
+    display: flex; 
+    flex-direction: column; 
+} 
+hr {
+   width: 100%;
+}
+
+
+
+
+
+
+fieldset {
+     border: none;
+}
+.link-text {
+    text-decoration: underline; 
+}
+.flex-container { 
+    display: flex; 
+}
+.center-container {
+    display: flex;
+    justify-content: center; 
+}
+.margined-center-container {
+    display: flex;
+    justify-content: center; 
+    margin-bottom: 15px;
+}
+
+.form-container {
+    border: 3px solid black; 
+    background-color: white;
+    padding: 5px 20px; 
+    color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 300px; 
+    height: 350px;
+    padding: 20px; 
+}
+.input-container {
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 15px;
+}
+.input-container label {
+    flex-grow: 1;
+    margin-right: 10px; 
+    text-align: left; 
+}
+.submit-container {
+    display: flex; 
+}
+.submit-container input {
+    margin-right: 10px;
+    width: 75px;
+    margin-top: 20px;
+}
+.green {
+    background-color: lightgreen; 
+}
+.red {
+    background-color: red;
+    color: white; 
+}
