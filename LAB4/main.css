@@ -23,6 +23,9 @@
 }
 .limited-container {
     max-width: 1000px; 
+    justify-content: center;
+    margin: 0 auto; 
+    
 }
 
 #movieResults {
