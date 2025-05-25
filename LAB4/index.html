@@ -1,0 +1,191 @@
+<!DOCTYPE html> 
+<html> 
+
+<head>
+    <title>Movie Information Page</title> 
+    <link rel="stylesheet" type="text/css"  href="main.css">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const movieSearchInput = document.getElementById("movieSearchInput");
+            const filterButton = document.getElementById("filterButton"); 
+            const sortButtons = document.querySelector("fieldset"); 
+            const results = document.getElementById("movieResults"); 
+            
+            let allMovies = []
+            let sortedMovieList = [];
+            let pageNum = 1; 
+            const moviesPerPage = 8; 
+            let isLoading = false;  
+            let sortBy = "dateUp";
+
+            function makeRequest() {
+            fetch("product.json")
+                .then(response => {
+                    console.log("working, yay")
+                    return response.json(); 
+                })
+                .then(movies => {
+                    allMovies = movies; 
+                    resetMovies(); 
+                })
+                .catch(error => {
+                    console.error("Error in fetching data", error)
+                })
+            }
+
+            function displayPage() {
+                isLoading = true; 
+
+                const start = (pageNum - 1) * moviesPerPage; 
+                const end = start + moviesPerPage; 
+
+                const moviesToDisplay = sortedMovieList.slice(start, end)
+                
+                console.log();
+
+
+                if (moviesToDisplay.length === 0 && pageNum === 1) {
+                 isLoading = false;
+                 return; 
+                }
+
+                moviesToDisplay.forEach(movie => {
+                    const box = document.createElement("div");
+                
+                    const centerContainer = document.createElement("div");
+                    centerContainer.classList.add("movie-container")
+                    
+                    const title = document.createElement("span");
+                    title.textContent = movie.title; 
+                    
+                    const date = document.createElement("span"); 
+                    date.textContent = movie.date; 
+
+                    const rating = document.createElement("span");
+                    rating.textContent = movie.rating; 
+
+                    const image = document.createElement("img");
+                    image.src = movie.poster; 
+                    image.classList.add("movie-poster")
+
+                    const summary = document.createElement("div"); 
+                    summary.classList.add("summary"); 
+                    summary.innerHTML = "Summary:" + movie.overview; 
+        
+
+                    const posterAndSum = document.createElement("div");
+                    posterAndSum.classList.add("poster-summary-container")
+                    
+                    posterAndSum.appendChild(summary); 
+                    posterAndSum.appendChild(image);
+                    centerContainer.appendChild(posterAndSum);
+                    
+                    centerContainer.appendChild(title); 
+                    centerContainer.appendChild(date);
+                    centerContainer.appendChild(rating);
+
+                    box.appendChild(centerContainer);
+                    results.appendChild(box);
+                })
+                
+                pageNum++; 
+                isLoading = false; 
+            }   
+
+            function resetMovies() {
+                pageNum = 1; 
+                results.innerHTML = ''; 
+                sortMovies(); 
+                displayPage(); 
+            }
+
+            function sortMovies() {
+                const movieTitleToSearch = movieSearchInput.value.toLowerCase(); 
+                    
+                let filteredMovies = allMovies.filter(movie => {
+                    return movie.title.toLowerCase().includes(movieTitleToSearch);
+                });
+
+                console.log(filteredMovies);
+
+                filteredMovies.sort((a, b) => {
+                    if (sortBy === "dateUp") {
+                        return new Date(b.date) - new Date(a.date); 
+                    } else if (sortBy === "dateDown") {
+                        return new Date(a.date) - new Date(b.date); 
+                    } else if (sortBy === "raitUp") {
+                        return b.rating - a.rating; 
+                    } else if (sortBy === "raitDown") {
+                        return a.rating - b.rating; 
+                    }
+                })
+
+                
+
+                sortedMovieList = filteredMovies 
+            }
+
+            makeRequest();
+            filterButton.addEventListener("click", resetMovies);
+            sortButtons.addEventListener("change", event => {
+                sortBy = event.target.value; 
+                resetMovies();
+            });
+
+            window.addEventListener("scroll", () => {
+                console.log("Scrolling");
+                if (!isLoading && (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 200) {
+                    if ((pageNum - 1) * moviesPerPage < sortedMovieList.length) {
+                        displayPage();
+                    }
+                }
+            })
+            
+
+        })
+
+        
+
+    </script>
+</head>
+
+<body>
+    <div class="limited-container">
+
+        <h1 class="animated-h1">
+            Movie Informations
+        </h1> 
+
+        <div class="navigation-container"> 
+            <span> Index </span> 
+            <a href="login.html"> &nbsp  Log In </a>
+            <a href="signup.html"> &nbsp Sign Up </a> 
+        </div> 
+
+        <hr>
+
+        <div class="row-container">
+            <input type="text" id="movieSearchInput">
+            <button id="filterButton">Filter Results</button>
+        </div>
+        
+        <h3>Movies</h3>
+        
+        <hr>
+
+        <div class="row-container">
+            <fieldset> 
+                <div class="sort-controls">
+                    <label><input type="radio" id="sortByDateUp" name="sortOption" value="dateUp" checked>Sort by Newest</label>
+                    <label><input type="radio" id="sortByDateDown" name="sortOption" value="dateDown" checked>Sort by Oldest</label>
+                    <label><input type="radio" id="sortByRaitingUp" name="sortOption" value="raitUp" checked>Sort by Highest Raiting</label>
+                    <label><input type="radio" id="sortByRaitingDown" name="sortOption" value="raitDown" checked>Sort by Lowest Raiting</label>
+                </div>
+            </fieldset> 
+            <div class="center-container" id="movieResults"></div>
+        </div>
+    </div>
+
+</body>
+</html>

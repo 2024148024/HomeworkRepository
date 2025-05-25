@@ -1,0 +1,154 @@
+@keyframes movingheader {
+    from {left: 200px} 
+    to {left: 0px}
+}
+
+#movieSearchInput {
+    width: 100%; 
+    padding: 5px; 
+    margin-right: 10px;
+}
+#filterButton {
+    width: 150px;
+    height: 40px;
+}
+.sort-controls {
+    display: flex;
+    flex-direction: column; 
+    width: 200px; 
+    height: 200px; 
+    padding: 10px; 
+    background-color: #f9f9f9; 
+
+}
+.limited-container {
+    max-width: 1000px; 
+}
+
+#movieResults {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+    gap: 20px; 
+}
+
+.movie-container {
+    flex-basis: 45%;
+    margin: 10px;
+    padding: 10px;  
+    width: 250px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.poster-summary-container {
+    position: relative;     
+}
+
+.movie-poster {
+    width: 220px; 
+    height: 330px; 
+}
+.summary {
+    position: absolute; 
+    display: flex; 
+    justify-content: center;
+    opacity: 0; 
+    background-color: rgba(0, 0, 0, 0.75); 
+    color: white;
+    width: 100%;
+    height: 100%; 
+    text-align: left;
+
+    padding: 10px; 
+    box-sizing: border-box; 
+
+    transition: opacity 0.6s ease; 
+}
+.poster-summary-container:hover .summary {
+    opacity: 1; 
+}
+
+.row-container {
+    max-width: 1000px; 
+    display: flex; 
+    justify-content: center; 
+    flex-direction: row;
+    margin: 20px;
+}
+.center-container {
+    display: flex;
+    justify-content: center; 
+}
+.margined-center-container {
+    display: flex;
+    justify-content: center; 
+    margin-bottom: 20px;
+}
+.animated-h1 {
+    margin-left: 25px; 
+    font-size: 32px; 
+    font-family: serif;
+    animation-name: movingheader; 
+    animation-duration: 2s; 
+    position: relative; 
+}
+.navigation-container {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
+    margin-left: 25px; 
+    margin-bottom: 25px;
+}
+.navigation-container a {
+     text-decoration: none; 
+} 
+.navigation-container a:hover {
+    text-decoration: underline; 
+}
+fieldset {
+     border: none;
+}
+.link-text {
+    text-decoration: underline; 
+}
+.form-container {
+    border: 3px solid black; 
+    background-color: white;
+    padding: 5px 20px; 
+    color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 300px; 
+    height: 350px;
+    padding: 20px; 
+}
+.input-container {
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 15px;
+}
+.input-container label {
+    flex-grow: 1;
+    margin-right: 10px; 
+    text-align: left; 
+}
+.submit-container {
+    display: flex; 
+}
+.submit-container input {
+    margin-right: 10px;
+    width: 75px;
+    margin-top: 20px;
+}
+.green {
+    background-color: lightgreen; 
+}
+.red {
+    background-color: red;
+    color: white; 
+}
